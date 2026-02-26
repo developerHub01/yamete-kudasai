@@ -144,7 +144,7 @@ function playYamete(context) {
     }
     // priority logic for yamete.mp3
     let randomFile;
-    const priorityFile = "yamete.mp3";
+    const priorityFile = "yamete.wav";
     // 50% chance to play yamete.mp3 if it exists, else random from all
     if (audioFiles.includes(priorityFile) && Math.random() < 0.2) {
         randomFile = priorityFile;
