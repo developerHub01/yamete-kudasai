@@ -42,6 +42,8 @@ const child_process_1 = require("child_process");
 let outputChannel;
 let statusBarItem;
 let audioFiles = [];
+let lastPlayTime = 0;
+const COOLDOWN_MS = 3000; // 3 seconds cooldown between audio plays
 function activate(context) {
     outputChannel = vscode.window.createOutputChannel("Yamete Kudasai Monitor");
     outputChannel.appendLine("Yamete Kudasai Monitor is now active!");
@@ -138,6 +140,13 @@ function refreshAudioFiles(context) {
     }
 }
 function playYamete(context) {
+    // Check cooldown to prevent audio spam
+    const now = Date.now();
+    if (now - lastPlayTime < COOLDOWN_MS) {
+        outputChannel.appendLine(`Cooldown active, skipping... (${Math.ceil((COOLDOWN_MS - (now - lastPlayTime)) / 1000)}s remaining)`);
+        return;
+    }
+    lastPlayTime = now;
     if (audioFiles.length === 0) {
         outputChannel.appendLine("No audio files found in assets/audio");
         return;
