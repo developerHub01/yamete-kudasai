@@ -2,7 +2,7 @@
   "name": "yamete-kudasai-monitor",
   "displayName": "Yamete Kudasai Error Monitor",
   "description": "Plays 'Yamete Kudasai' audio when code or terminal errors occur.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "AbdusShohidShakil",
   "icon": "icon.png",
   "engines": {
