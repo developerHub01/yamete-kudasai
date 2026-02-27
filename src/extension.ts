@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand("yameteKudasai.testAudio", () => {
       outputChannel.appendLine("Manual test triggered.");
-      playYamete(context);
+      playYamete(context, false);
       vscode.window.showInformationMessage("Yamete Kudasai! Audio tested.");
     }),
   );
@@ -150,10 +150,10 @@ function refreshAudioFiles(context: vscode.ExtensionContext) {
   }
 }
 
-function playYamete(context: vscode.ExtensionContext) {
+function playYamete(context: vscode.ExtensionContext, shouldPreventForTime: boolean = true) {
   // Check cooldown to prevent audio spam
   const now = Date.now();
-  if (now - lastPlayTime < COOLDOWN_MS) {
+  if (now - lastPlayTime < COOLDOWN_MS && shouldPreventForTime) {
     outputChannel.appendLine(`Cooldown active, skipping... (${Math.ceil((COOLDOWN_MS - (now - lastPlayTime)) / 1000)}s remaining)`);
     return;
   }
