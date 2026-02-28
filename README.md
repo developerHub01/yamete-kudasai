@@ -20,13 +20,7 @@ A professional and highly reactive VS Code extension that monitors your project 
 ## Usage
 
 - **Testing**: Run the command `Yamete Kudasai: Test Audio` or click the heart icon.
-- **Dynamic Assets**: Drop any `.mp3` or `.wav` into the `assets/audio` folder and run `Yamete Kudasai: Refresh Audio List`.
 - **Settings**: Search for `Yamete` in VS Code settings to toggle features.
-
-## Professional Configuration
-
-- Uses `PresentationCore` for robust Windows audio.
-- Per-file error tracking ensures no error goes unnoticed.
 
 ---
 
