@@ -21,6 +21,14 @@ A professional and highly reactive VS Code extension that monitors your project 
 
 - **Testing**: Run the command `Yamete Kudasai: Test Audio` or click the heart icon.
 - **Settings**: Search for `Yamete` in VS Code settings to toggle features.
+- **Audio Selector**: Run `Yamete Kudasai: Open Audio Selector` to open the built-in selector.
+- **Modes**: `Random` plays a random library audio by default, `Library` lets you pick a bundled sound, and `Custom` enables the custom audio link field.
+
+## Audio Selector Notes
+
+- The custom audio input starts with a dummy value so it is never empty.
+- Paste a local file path or `file://` link when using `Custom`.
+- The selector uses the extension's built-in VS Code webview, so no extra library is required.
 
 ---
 

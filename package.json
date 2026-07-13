@@ -16,8 +16,9 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
+  "license": "MIT",
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
@@ -39,6 +40,34 @@
           "minimum": 0,
           "maximum": 1,
           "description": "Volume of the audio (0.0 to 1.0)."
+        },
+        "yameteKudasai.audioSelection": {
+          "type": "string",
+          "enum": [
+            "random",
+            "audio1.wav",
+            "audio2.wav",
+            "audio3.wav",
+            "audio4.wav",
+            "audio5.wav",
+            "audio6.wav",
+            "audio7.wav",
+            "audio8.wav",
+            "audio9.wav",
+            "audio10.wav",
+            "audio11.wav",
+            "audio12.wav",
+            "audio13.wav",
+            "yamete.wav",
+            "custom"
+          ],
+          "default": "random",
+          "markdownDescription": "Select an audio from the bundled assets, choose random, or switch to custom for a pasted local path. To preview or change it quickly, run [Yamete Kudasai: Open Audio Selector](command:yameteKudasai.openAudioSelector)."
+        },
+        "yameteKudasai.customAudioPath": {
+          "type": "string",
+          "default": "C:/path/to/your-audio.mp3",
+          "markdownDescription": "Custom local audio path or file:// URL. It becomes relevant when audioSelection is set to custom. Preview it from [Yamete Kudasai: Open Audio Selector](command:yameteKudasai.openAudioSelector)."
         }
       }
     },
@@ -48,8 +77,20 @@
         "title": "Yamete Kudasai: Test Audio"
       },
       {
+        "command": "yameteKudasai.previewAudio",
+        "title": "Yamete Kudasai: Preview / Select Audio"
+      },
+      {
+        "command": "yameteKudasai.openAudioSelector",
+        "title": "Yamete Kudasai: Open Audio Selector"
+      },
+      {
         "command": "yameteKudasai.openSettings",
         "title": "Yamete Kudasai: Open Settings"
+      },
+      {
+        "command": "yameteKudasai.setPreferredAudio",
+        "title": "Yamete Kudasai: Set Preferred Audio"
       },
       {
         "command": "yameteKudasai.refreshAudio",
